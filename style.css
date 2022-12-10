@@ -58,6 +58,7 @@ body
     background: #2f363e;
     border: 3px solid rgb(87, 121, 127);
     border-radius: 50%;
+    z-index: 100000;
 }
 
 .clock span
@@ -87,6 +88,7 @@ body
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    z-index: 10;
 }
 
 .circle em
@@ -94,7 +96,20 @@ body
     position: relative;
     width: 6px;
     height: 50%;
-    background: #0c62c4;
+    background: var(--clr);
+    opacity: 0.85;
+    transform-origin: bottom;
+    transform: scale(0.6);
+}
+
+.circle:nth-child(1) em
+{
+    width: 2px;
+}
+
+.circle:nth-child(2) em
+{
+    width: 6px;
 }
 
 
@@ -103,11 +118,25 @@ body
 {
     width: 240px;
     height: 240px;
+    z-index: 9;
 }
 .circle3
 {
     width: 180px;
     height: 180px;
+    z-index: 8;
 }
+.circle::before
+{
+    content: ' ';
+    position: absolute;
+    top: -8.5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 15px var(--clr),
+    0 0 40px var(--clr);
 
+}
 
